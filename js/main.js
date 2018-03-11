@@ -29,7 +29,6 @@ let chart = new Chart($("#circle"), {
     pieceLabel:{
       render:'label',
       fontColor:"#fff",
-      fontSize: ,
       arc:true,
       position: 'border'
     }
