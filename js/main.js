@@ -10,7 +10,7 @@ createColors();
 let chart = new Chart($("#circle"), {
   type: 'pie',
   data: {
-    labels: Object.keys(colorarray),
+    labels: [],
     datasets: [{
       label: 'Material Pallete',
       data: Array(Object.keys(colorarray).length).fill((360 / Object.keys(colorarray).length)),
@@ -26,12 +26,7 @@ let chart = new Chart($("#circle"), {
       display: false
     },
     events: ['click'],
-    pieceLabel:{
-      render:'label',
-      fontColor:"#fff",
-      arc:true,
-      position: 'border'
-    }
+
   }
 });
 
@@ -41,8 +36,14 @@ $("#circle").click(
     expandColor(Object.keys(colorarray)[activePoints[0]['_index']]);
   }
 );
+function displayColor(color) {
+  $(".card").css("display", "block")
+  $("#colorname")[0].innerText = color;
+  $("#colorvalue")[0].innerText = colorarray[color];
 
+}
 function expandColor(color) {
+  displayColor(color);
   if(!Object.keys(colors).includes(color)){
     return;
   }
